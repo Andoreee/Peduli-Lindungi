@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_splash_screen: ^1.0.0
   font_awesome_flutter: ^10.3.0
+  carousel_slider: ^4.0.0
 
 
 
@@ -66,6 +67,15 @@ flutter:
   assets:
       - assets/images/scan.png
       - assets/images/gridmenu/sertifikat-v.png
+      - assets/images/gridmenu/hasil-tes.png
+      - assets/images/gridmenu/aturan-perjalanan.png
+      - assets/images/gridmenu/teledoktor.png
+      - assets/images/gridmenu/riwayat.png
+      - assets/images/gridmenu/more.png
+      - assets/images/carousel/carousel-1.jpg
+      - assets/images/carousel/carousel-2.jpg
+      - assets/images/carousel/carousel-3.jpg
+      - assets/images/carousel/carousel-4.jpg
 
   fonts:
     - family: Roboto

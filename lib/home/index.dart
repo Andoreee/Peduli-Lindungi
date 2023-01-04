@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:peduli_diri/components/appbar.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:peduli_diri/home/carousel_slider.dart';
+import 'package:peduli_diri/home/grid_menu.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key, required this.Username}) : super(key: key);
@@ -40,32 +43,18 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: GridView.count(
-                  primary: false,
-                  padding: const EdgeInsets.all(0.0),
-                  crossAxisSpacing: 10.0,
-                  crossAxisCount: 3,
-                  children: <Widget>[
-                    Column(
-                      children: [
-                        Image.asset('assets/images/gridmenu/sertifikat-v.png'),
-                        SizedBox(height: 10,),
-                        Text('Sertifikat Vaksin'
-                        ,style: TextStyle(
-                          fontFamily: "Reem Kufi",
-                        ),)
-                      ],
-                    ),
-                    FlutterLogo(),
-                    FlutterLogo(),
-                    FlutterLogo(),
-                    FlutterLogo(),
-                    FlutterLogo(),
-                  ],
-                ),
-              ),
+              child: ListView(
+                children: [
+                  grid_menu(),
+                  SizedBox(height: 25,),
+                  Text("  Informasi Kesehatan",
+                  style: TextStyle(
+                    fontFamily: "Reem Kufi",
+                    fontSize: 20
+                  ),),
+                  carouselSlider()
+                ],
+              )
             )
           ],
         ));
