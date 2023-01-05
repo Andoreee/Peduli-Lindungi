@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
     if (width < 200) widths = 2;
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: userAppBar(Username),
+        appBar: userAppBar(Username, context),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

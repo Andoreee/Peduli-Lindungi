@@ -93,7 +93,7 @@ class Login extends StatelessWidget {
                                             height: 29,
                                             child: TextField(
                                               autofocus: true,
-                                              autofillHints: ['Admin', 'Andoreee'],
+                                              autofillHints: ['Admin', 'Andoreee', "Andrean Revaldi"],
                                                 controller: Username,
                                                 style: const TextStyle(
                                                   color: Colors.white,
@@ -279,7 +279,7 @@ class Login extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        if (Username.text == null || Username.text.isEmpty) {
+                        if (Username.text == "Kosong") {
                           showDialog(context: context, builder: (context) => 
                                         AlertDialog(
                                             content: const Text("Username tidak boleh kosong!"),
