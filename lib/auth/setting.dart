@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:peduli_diri/auth/login.dart';
+import 'package:peduli_diri/components/splash_screen.dart';
 
 class Setting extends StatelessWidget {
   const Setting({super.key, required this.Username});
@@ -145,7 +146,7 @@ class Setting extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => Login()));
+                      MaterialPageRoute(builder: (_) => SplashScreenPage())); 
                 },
                 child: const Text(
                   'KELUAR AKUN',

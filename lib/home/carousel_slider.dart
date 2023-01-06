@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-final Uri _url = Uri.parse('https://flutter.dev');
-final Uri _url2 = Uri.parse('https://flutter.dev');
+final Uri _url = Uri.parse('https://www.klikdokter.com/gaya-hidup/sehat-bugar/informasi-kesehatan-digital-harus-berkredibilitas');
+final Uri _url2 = Uri.parse('https://www.alinea.id/nasional/pemanfaatan-teknologi-kesehatan-ri-tertinggal-b2cDV98xq');
 final Uri _url3 = Uri.parse('https://www.mrs-dinastian.com/2019/12/mudahnya-mencari-informasi-kesehatan-di.html');
-final Uri _url4 = Uri.parse('https://flutter.dev');
+final Uri _url4 = Uri.parse('https://indobalinews.pikiran-rakyat.com/nasional/pr-881115553/bio-farma-belum-layani-pre-order-vaksin-covid-19-satgas-minta-rs-hentikan-promosi-pre-order');
 CarouselSlider carouselSlider() {
   return CarouselSlider(
     items: [
@@ -22,13 +22,16 @@ CarouselSlider carouselSlider() {
               ),
             ),
       ),
-          Container(
-            margin: EdgeInsets.all(3.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              image: DecorationImage(
-                image: AssetImage('assets/images/carousel/carousel-2.jpg'),
-                fit: BoxFit.cover,
+          InkWell(
+            onTap: () => _launchUrl2(),
+            child: Container(
+              margin: EdgeInsets.all(3.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/carousel/carousel-2.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -45,13 +48,16 @@ CarouselSlider carouselSlider() {
               ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.all(3.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              image: DecorationImage(
-                image: AssetImage('assets/images/carousel/carousel-4.jpg'),
-                fit: BoxFit.cover,
+          InkWell(
+            onTap: () => _launchUrl4(),
+            child: Container(
+              margin: EdgeInsets.all(3.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/carousel/carousel-4.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

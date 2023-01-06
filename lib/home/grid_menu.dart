@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+final Uri _teledoc = Uri.parse('https://www.halodoc.com/');
+final Uri _aturanPerjalanan = Uri.parse('https://faq.kemkes.go.id/faq/protokol-kesehatan-bagi-pelaku-perjalanan-luar-negeri-ppln-memasuki-indonesia-i-health-protocol-for-international-travelers-ppln-entering-indonesia');
 Row grid_menu() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -30,20 +33,26 @@ Row grid_menu() {
             Positioned.fill(
               child: Align(
                 alignment: Alignment.topRight,
-                child: Image.asset(
-                  "assets/images/gridmenu/aturan-perjalanan.png",
-                  width: 70,
-                  height: 70,
+                child: InkWell(
+                onTap: () => _aturanPerjalananUrl(),
+                  child: Image.asset(
+                    "assets/images/gridmenu/aturan-perjalanan.png",
+                    width: 70,
+                    height: 70,
+                  ),
                 ),
               ),
             ),
             Positioned(
               left: 0,
               top: 138,
-              child: Image.asset(
-                "assets/images/gridmenu/teledoktor.png",
-                width: 70,
-                height: 70,
+              child: InkWell(
+                onTap: () => _teledocUrl(),
+                child: Image.asset(
+                  "assets/images/gridmenu/teledoktor.png",
+                  width: 70,
+                  height: 70,
+                ),
               ),
             ),
             Positioned.fill(
@@ -107,7 +116,7 @@ Row grid_menu() {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               left: 139,
               top: 74,
               child: SizedBox(
@@ -124,7 +133,7 @@ Row grid_menu() {
                 ),
               ),
             ),
-            Positioned.fill(
+            const Positioned.fill(
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: SizedBox(
@@ -142,7 +151,7 @@ Row grid_menu() {
                 ),
               ),
             ),
-            Positioned.fill(
+            const Positioned.fill(
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: SizedBox(
@@ -175,4 +184,14 @@ Row grid_menu() {
       )
     ],
   );
+}
+Future<void> _teledocUrl() async {
+  if (!await launchUrl(_teledoc)) {
+    throw 'Could not launch $_teledoc';
+  }
+}
+Future<void> _aturanPerjalananUrl() async {
+  if (!await launchUrl(_aturanPerjalanan)) {
+    throw 'Could not launch $_aturanPerjalanan';
+  }
 }

@@ -14,7 +14,7 @@ class Login extends StatelessWidget {
             children: [
               Container(
                   width: 379,
-                  height: MediaQuery.of(context).size.height - 300,
+                  height: 350,
                   padding: EdgeInsets.only(
                     top: 20,
                   ),
