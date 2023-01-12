@@ -6,7 +6,7 @@ import 'package:peduli_diri/home/carousel_slider.dart';
 import 'package:peduli_diri/home/grid_menu.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key, required this.Username}) : super(key: key);
+  const HomePage({Key key, this.Username}) : super(key: key);
   final String Username;
   @override
   Widget build(BuildContext context) {

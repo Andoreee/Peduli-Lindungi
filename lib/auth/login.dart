@@ -3,7 +3,7 @@ import 'package:peduli_diri/auth/register.dart';
 import 'package:peduli_diri/home/index.dart';
 
 class Login extends StatefulWidget {
-  Login({super.key});
+  const Login({Key key}) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();

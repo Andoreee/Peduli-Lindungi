@@ -4,8 +4,9 @@ import 'package:peduli_diri/auth/login.dart';
 import 'package:peduli_diri/components/splash_screen.dart';
 
 class Setting extends StatelessWidget {
-  const Setting({super.key, required this.Username});
   final String Username;
+
+  const Setting({Key key, this.Username}) : super(key: key);
   Row menuSetting(String textMenu, Icon iconMenu) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:peduli_diri/helpers/dbhelper.dart';
 import 'package:peduli_diri/home/index.dart';
+import 'package:peduli_diri/models/mUser.dart';
 
 class Register extends StatefulWidget {
-  const Register({super.key});
-
+  const Register({Key key}) : super(key: key);
   @override
   State<Register> createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
   bool _isObscure = true;
-
+  DbHelper dbHelper = DbHelper();
     final TextEditingController Username = new TextEditingController();
     final TextEditingController NIK = new TextEditingController();
     final TextEditingController Password = new TextEditingController();
@@ -55,6 +56,96 @@ class _RegisterState extends State<Register> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
+                                  Container(
+                                    width: 360,
+                                    height: 39,
+                                    padding: const EdgeInsets.only(
+                                      right: 229,
+                                      top: 5,
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: const [
+                                        SizedBox(
+                                          width: 131,
+                                          height: double.infinity,
+                                          child: Text(
+                                            "NIK",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 24,
+                                              fontFamily: "Roboto",
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10.60),
+                                  Opacity(
+                                    opacity: 0.54,
+                                    child: Container(
+                                      width: 364,
+                                      height: 29,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          SizedBox(
+                                            width: 364,
+                                            height: 29,
+                                            child: TextField(
+                                                controller: NIK,
+                                                style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 20,
+                                                  fontStyle: FontStyle.italic,
+                                                ),
+                                                decoration:
+                                                    const InputDecoration(
+                                                  border: InputBorder.none,
+                                                  hintText: "Masukan NIK",
+                                                  hintStyle: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 20,
+                                                    fontStyle: FontStyle.italic,
+                                                  ),
+                                                )),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10.60),
+                                  Opacity(
+                                    opacity: 0.40,
+                                    child: Container(
+                                      width: 372,
+                                      height: 1,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 372,
+                                            height: 1,
+                                            color: Colors.white,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
                                   Container(
                                     width: 360,
                                     height: 39,
@@ -195,6 +286,7 @@ class _RegisterState extends State<Register> {
                                             width: 352,
                                             height: 29,
                                             child: TextField(
+                                              controller: Password,
                                               obscureText: _isObscure,
                                               enableSuggestions: false,
                                               autocorrect: false,
@@ -247,98 +339,6 @@ class _RegisterState extends State<Register> {
                                             ),
                                           ],
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 360,
-                                    height: 39,
-                                    padding: const EdgeInsets.only(
-                                      right: 229,
-                                      top: 5,
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: const [
-                                        SizedBox(
-                                          width: 131,
-                                          height: double.infinity,
-                                          child: Text(
-                                            "Username",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 24,
-                                              fontFamily: "Roboto",
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10.60),
-                                  Opacity(
-                                    opacity: 0.54,
-                                    child: Container(
-                                      width: 364,
-                                      height: 29,
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          SizedBox(
-                                            width: 364,
-                                            height: 29,
-                                            child: TextField(
-                                              autofocus: true,
-                                              autofillHints: ['Admin', 'Andoreee', "Andrean Revaldi"],
-                                                controller: Username,
-                                                style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 20,
-                                                  fontStyle: FontStyle.italic,
-                                                ),
-                                                decoration:
-                                                    const InputDecoration(
-                                                  border: InputBorder.none,
-                                                  hintText: "Masukan Username",
-                                                  hintStyle: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 20,
-                                                    fontStyle: FontStyle.italic,
-                                                  ),
-                                                )),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10.60),
-                                  Opacity(
-                                    opacity: 0.40,
-                                    child: Container(
-                                      width: 372,
-                                      height: 1,
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Container(
-                                            width: 372,
-                                            height: 1,
-                                            color: Colors.white,
-                                          ),
-                                        ],
                                       ),
                                     ),
                                   ),
@@ -395,10 +395,10 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                       onTap: () {
-                        if (Username.text == "Kosong") {
+                        if (Username.text == "" || Username.text.isEmpty) {
                           showDialog(context: context, builder: (context) => 
                                         AlertDialog(
-                                            content: const Text("Username tidak boleh kosong!"),
+                                            content: const Text("Form tidak boleh kosong!"),
                                             actions: [
                                               TextButton(
                                                 child: const Text('Ok'),
@@ -408,7 +408,10 @@ class _RegisterState extends State<Register> {
                                           )
                                         ); 
                         }
-                        else{
+                        else{ 
+                          List<User> user;
+                          dbHelper.insert(User(Username.text, NIK.text, Password.text));
+                          print(user);
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

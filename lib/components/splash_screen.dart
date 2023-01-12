@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:peduli_diri/auth/login.dart';
 
 class SplashScreenPage extends StatefulWidget {
-  SplashScreenPage({Key? key}) : super(key: key);
+  SplashScreenPage({Key key}) : super(key: key);
   @override
   _SplashScreenPageState createState() => _SplashScreenPageState();
 }
