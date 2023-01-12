@@ -4,6 +4,7 @@ import 'package:peduli_diri/auth/setting.dart';
 
 AppBar userAppBar(String Username, BuildContext context) {
   return AppBar(
+    automaticallyImplyLeading: false,
     elevation: 0,
     backgroundColor: Colors.white,
     title: Container(

@@ -74,6 +74,8 @@ flutter:
       - assets/images/gridmenu/teledoktor.png
       - assets/images/gridmenu/riwayat.png
       - assets/images/gridmenu/more.png
+      - assets/images/gridmenu/pelayanan-kesehatan.png
+      - assets/images/gridmenu/statistik.png
       - assets/images/carousel/carousel-1.jpg
       - assets/images/carousel/carousel-2.jpg
       - assets/images/carousel/carousel-3.jpg
