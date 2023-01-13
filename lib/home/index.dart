@@ -1,15 +1,43 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:peduli_diri/auth/login.dart';
 import 'package:peduli_diri/components/appbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:peduli_diri/home/carousel_slider.dart';
 import 'package:peduli_diri/home/grid_menu.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key key, this.Username}) : super(key: key);
-  final String Username;
+class HomePage extends StatefulWidget {
+  const HomePage({Key key}) : super(key: key);
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String Username, Name;
+  Future<bool> isLogin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.getBool('isLogin') == null || prefs.getBool('isLogin') == false) {
+      return false;
+    } else {
+      Name = prefs.getString("Username");
+      return true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    initState() {
+      isLogin() != null
+          ? Username = Name : Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (_) => Login()));
+      if (isLogin() == null)
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (_) => Login()));
+    }
+
     var width = MediaQuery.of(context).size.width;
     var widths = 0.6;
     if (width < 600) widths = 1;
@@ -43,19 +71,19 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             Expanded(
-              child: ListView(
-                children: [
-                  grid_menu(),
-                  SizedBox(height: 25,),
-                  Text("  Informasi Kesehatan",
-                  style: TextStyle(
-                    fontFamily: "Reem Kufi",
-                    fontSize: 20
-                  ),),
-                  carouselSlider()
-                ],
-              )
-            )
+                child: ListView(
+              children: [
+                grid_menu(),
+                SizedBox(
+                  height: 25,
+                ),
+                Text(
+                  "  Informasi Kesehatan",
+                  style: TextStyle(fontFamily: "Reem Kufi", fontSize: 20),
+                ),
+                carouselSlider()
+              ],
+            ))
           ],
         ));
   }

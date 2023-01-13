@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:peduli_diri/auth/login.dart';
 import 'package:peduli_diri/components/splash_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Setting extends StatelessWidget {
   final String Username;
@@ -146,8 +147,9 @@ class Setting extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
+                  LogOut();
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (_) => SplashScreenPage())); 
+                      MaterialPageRoute(builder: (_) => SplashScreenPage()));
                 },
                 child: const Text(
                   'KELUAR AKUN',
@@ -195,5 +197,11 @@ class Setting extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  LogOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("Username");
+    prefs.remove("isLogin");
   }
 }

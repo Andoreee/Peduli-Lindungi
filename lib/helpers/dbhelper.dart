@@ -5,6 +5,7 @@ import 'dart:io';
 //bekerja pada file dan directory
 import 'package:path_provider/path_provider.dart';
 import 'package:peduli_diri/models/mUser.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 //pubspec.yml
 
 
@@ -49,20 +50,24 @@ class DbHelper {
     _database ??= await initDb();
     return _database;
   }
-
-  Future<List<Map<String, dynamic>>> select() async {
-    Database db = await this.database;
-    var mapList = await db.query('users', orderBy: 'id');
-    return mapList;
-  }
-
 //create databases
-  Future<int> insert(User object) async {
+  Future<int> saveUser(User object) async {
     Database db = await this.database;
     int count = await db.insert('users', object.toMap());
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('Username', object.username);
+    prefs.setBool('isLogin', true);
     return count;
   }
-//update databases
+  Future<int> logIn(String user, String pass) async {
+    Database db = await this.database;
+    var res = await db.rawQuery("SELECT * FROM users WHERE username = '$user' and password = '$pass'");
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('Username', user);
+    prefs.setBool('isLogin', true);
+    return res.length;
+  }
+
   Future<int> update(User object) async {
     Database db = await this.database;
     int count = await db.update('users', object.toMap(), 
@@ -80,16 +85,16 @@ class DbHelper {
     return count;
   }
   
-  Future<List<User>> getUserList() async {
-    // ignore: non_constant_identifier_names
-    var UserMapList = await select();
-    int count = UserMapList.length;
-    // ignore: deprecated_member_use, non_constant_identifier_names
-    List<User> UserList = <User>[];
-    for (int i=0; i<count; i++) {
-      UserList.add(User.fromMap(UserMapList[i]));
-    }
-    return UserList;
-  }
+  // Future<List<User>> getUserList() async {
+  //   // ignore: non_constant_identifier_names
+  //   var UserMapList = await select();
+  //   int count = UserMapList.length;
+  //   // ignore: deprecated_member_use, non_constant_identifier_names
+  //   List<User> UserList = <User>[];
+  //   for (int i=0; i<count; i++) {
+  //     UserList.add(User.fromMap(UserMapList[i]));
+  //   }
+  //   return UserList;
+  // }
 
 }

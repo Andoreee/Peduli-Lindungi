@@ -409,14 +409,12 @@ class _RegisterState extends State<Register> {
                                         ); 
                         }
                         else{ 
-                          List<User> user;
-                          dbHelper.insert(User(Username.text, NIK.text, Password.text));
-                          print(user);
+                          dbHelper.saveUser(User(Username.text, NIK.text, Password.text));
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      HomePage(Username: Username.text)));
+                                      HomePage()));
                         }
                       },
                     ),

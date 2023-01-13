@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:peduli_diri/auth/register.dart';
 import 'package:peduli_diri/home/index.dart';
+import 'package:peduli_diri/helpers/dbhelper.dart';
+import '../models/mUser.dart';
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -13,6 +15,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
     final TextEditingController Username = new TextEditingController();
     final TextEditingController Password = new TextEditingController();
+  DbHelper dbHelper = DbHelper();
   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
@@ -318,11 +321,12 @@ class _LoginState extends State<Login> {
                                         ); 
                         }
                         else{
+                          dbHelper.logIn(Username.text, Password.text);
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      HomePage(Username: Username.text)));
+                                      HomePage()));
                         }
                       },
                     ),

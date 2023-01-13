@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:peduli_diri/auth/login.dart';
+import 'package:peduli_diri/home/index.dart';
 
 class SplashScreenPage extends StatefulWidget {
   SplashScreenPage({Key key}) : super(key: key);
@@ -23,7 +24,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     return Timer(durasiSplash, () {
       //pindah ke halaman home
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return Login();
+        return HomePage();
       }));
     });
   }

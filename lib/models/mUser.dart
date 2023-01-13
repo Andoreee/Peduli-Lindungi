@@ -21,7 +21,7 @@ class User {
   String get nik => _nik;
   String get pass => _pass;
 
-  // setter  
+  // setter
   set username(String value) {
     _username = value;
   }
@@ -29,7 +29,7 @@ class User {
   set nik(String value) {
     _nik = value;
   }
-  
+
   set pass(String value) {
     _pass = value;
   }
@@ -42,6 +42,5 @@ class User {
     map['nik'] = nik;
     map['pass'] = pass;
     return map;
-  }  
-
+  }
 }
